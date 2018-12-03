@@ -3,8 +3,28 @@
   <h2>{{god.name | uppercase}} Details</h2>
   <div><span>id: </span>{{god.id}}</div>
   <div>
-    <label>name:
+    <label>Name:
       <input [(ngModel)]="god.name" placeholder="name">
+    </label>
+  </div>
+  <div>
+    <label>Country:
+      <input [(ngModel)]="god.country" placeholder="country">
+    </label>
+  </div>
+  <div>
+    <label>Power:
+      <input [(ngModel)]="god.power" placeholder="power">
+    </label>
+  </div>
+  <div>
+    <label>Symbol:
+      <input [(ngModel)]="god.symbol" placeholder="symbol">
+    </label>
+  </div>
+  <div>
+    <label>Animal:
+      <input [(ngModel)]="god.animal" placeholder="animal">
     </label>
   </div>
   <button (click)="goBack()">go back</button>

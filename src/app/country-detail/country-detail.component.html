@@ -3,8 +3,18 @@
   <h2>{{country.name | uppercase}} Details</h2>
   <div><span>id: </span>{{country.id}}</div>
   <div>
-    <label>name:
+    <label>Name:
       <input [(ngModel)]="country.name" placeholder="name">
+    </label>
+  </div>
+  <div>
+    <label>Area:
+      <input [(ngModel)]="country.area" placeholder="area">
+    </label>
+  </div>
+  <div>
+    <label>Population:
+      <input [(ngModel)]="country.population" placeholder="population">
     </label>
   </div>
   <button (click)="goBack()">go back</button>
