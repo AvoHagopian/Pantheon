@@ -7,14 +7,4 @@
   </li>
 </ul>
 
-<div *ngIf="selectedGof">
-
-  <h2>{{selectedGod.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedHero.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedGod.name" placeholder="name">
-    </label>
-  </div>
-
-</div>
+<app-god-detail [god] = selectedGod></app-god-detail>

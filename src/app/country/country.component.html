@@ -7,14 +7,4 @@
   </li>
 </ul>
 
-<div *ngIf="selectedCountry">
-
-  <h2>{{selectedCountry.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedCountry.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedCountry.name" placeholder="name">
-    </label>
-  </div>
-
-</div>
+<app-country-detail [country] = selectedCountry></app-country-detail>

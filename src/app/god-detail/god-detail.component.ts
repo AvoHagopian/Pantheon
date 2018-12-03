@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { God } from '../god';
 
 @Component({
   selector: 'app-god-detail',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./god-detail.component.css']
 })
 export class GodDetailComponent implements OnInit {
-
+  @Input() god: God;
   constructor() { }
 
   ngOnInit() {
