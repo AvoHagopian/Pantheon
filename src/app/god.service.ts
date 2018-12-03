@@ -11,5 +11,8 @@ export class GodService {
   getGods(): Observable<God[]> {
     return of(GODS);
   }
+  getGod(id: number): Observable<God> {
+    return of(GODS.find(god => god.id === id));
+  }
   constructor() { }
 }

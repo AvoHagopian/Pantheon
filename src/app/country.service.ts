@@ -11,5 +11,8 @@ export class CountryService {
   getCountries(): Observable<Country[]> {
     return of(COUNTRIES);
   }
+  getCountry(id: number): Observable<Country> {
+    return of(COUNTRIES.find(country => country.id === id));
+  }
   constructor() { }
 }

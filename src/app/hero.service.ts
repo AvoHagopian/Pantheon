@@ -11,5 +11,8 @@ export class HeroService {
   getHeroes(): Observable<Hero[]> {
     return of(HEROES);
   }
+  getHero(id: number): Observable<Hero> {
+    return of(HEROES.find(hero => hero.id === id));
+  }
   constructor() { }
 }

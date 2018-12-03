@@ -11,10 +11,6 @@ import { CountryService } from '../country.service';
 })
 export class CountryComponent implements OnInit {
   countries: Country[];
-  selectedCountry: Country;
-  onSelect(country: Country): void {
-  this.selectedCountry = country;
-  }
   constructor(private countryService: CountryService) { }
   getCountries(): void {
     this.countryService.getCountries().subscribe(countries => this.countries = countries);

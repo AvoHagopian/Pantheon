@@ -11,10 +11,6 @@ import { GodService } from '../god.service';
 })
 export class GodComponent implements OnInit {
   gods: God[];
-  selectedGod: God;
-  onSelect(god: God): void {
-  this.selectedGod = god;
-  }
   constructor(private godService: GodService) { }
   getGods(): void {
     this.godService.getGods().subscribe(gods => this.gods = gods);
