@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Country } from '../country';
+import { COUNTRIES } from '../mock-countries';
 
 @Component({
   selector: 'app-country',
@@ -7,7 +8,11 @@ import { Country } from '../country';
   styleUrls: ['./country.component.css']
 })
 export class CountryComponent implements OnInit {
-
+  countries = COUNTRIES;
+  selectedCountry: Country;
+  onSelect(country: Country): void {
+  this.selectedCountry = country;
+  }
   constructor() { }
 
   ngOnInit() {

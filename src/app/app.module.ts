@@ -8,6 +8,9 @@ import { CountryComponent } from './country/country.component';
 import { GodComponent } from './god/god.component';
 import { HeroComponent } from './hero/hero.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { CountryDetailComponent } from './country-detail/country-detail.component';
+import { GodDetailComponent } from './god-detail/god-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     CountryComponent,
     GodComponent,
     HeroComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroDetailComponent,
+    CountryDetailComponent,
+    GodDetailComponent
   ],
   imports: [
     BrowserModule,
