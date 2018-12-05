@@ -1,18 +1,68 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { God } from './god';
 import { GODS } from './mock-gods';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class GodService {
+
+  private godsUrl = 'api/gods';
+
+  // GET many
   getGods(): Observable<God[]> {
-    return of(GODS);
+    return this.http.get<God[]>(this.godsUrl).pipe(
+      catchError(this.handleError('getGods', []))
+    );
   }
+
+  // GET one
   getGod(id: number): Observable<God> {
-    return of(GODS.find(god => god.id === id));
+    const url = `${this.godsUrl}/${id}`;
+    return this.http.get<God>(url).pipe(
+      catchError(this.handleError<God>(`getGod id=${id}`))
+    );
   }
-  constructor() { }
+
+  // PUT
+  updateGod(god: God): Observable<any> {
+    return this.http.put(this.godsUrl, god, httpOptions).pipe(
+      catchError(this.handleError<any>('updateGod'))
+    );
+  }
+
+  // POST
+  addGod (god: God): Observable<God> {
+    return this.http.post<God>(this.godsUrl, god, httpOptions).pipe(
+      catchError(this.handleError<God>('addGod'))
+    );
+  }
+
+  // DELETE
+  deleteGod (god: God | number): Observable<God> {
+    const id = typeof god === 'number' ? god : god.id;
+    const url = `${this.godsUrl}/${id}`;
+
+    return this.http.delete<God>(url, httpOptions).pipe(
+      catchError(this.handleError<God>('deleteGod'))
+    );
+  }
+
+  constructor( private http: HttpClient ) { }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      return of(result as T);
+    };
+  }
 }

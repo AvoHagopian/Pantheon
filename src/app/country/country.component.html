@@ -1,8 +1,18 @@
 <h2>My Countries</h2>
+<div>
+  <label>Country name:
+    <input #countryName />
+  </label>
+  <button (click)="add(countryName.value); countryName.value=''">
+    add
+  </button>
+</div>
 <ul class="countries">
   <li *ngFor="let country of countries">
     <a routerLink = "detail/{{country.id}}">
       <span class="badge">{{country.id}}</span> {{country.name}}
     </a>
+    <button class="delete" title="delete country"
+      (click)="delete(country)">x</button>
   </li>
 </ul>

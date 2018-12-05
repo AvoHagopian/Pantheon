@@ -22,6 +22,10 @@ export class CountryDetailComponent implements OnInit {
     this.countryService.getCountry(id)
       .subscribe(country => this.country = country);
   }
+  save(): void {
+    this.countryService.updateCountry(this.country)
+      .subscribe(() => this.goBack());
+  }
   goBack(): void {
     this.location.back();
   }
