@@ -22,6 +22,10 @@ export class GodDetailComponent implements OnInit {
     this.godService.getGod(id)
       .subscribe(god => this.god = god);
   }
+  save(): void {
+    this.godService.updateGod(this.god)
+      .subscribe(() => this.goBack());
+  }
   goBack(): void {
     this.location.back();
   }
