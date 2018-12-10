@@ -4,7 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { God } from './god';
-import { GODS } from './mock-gods';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,6 +14,8 @@ const httpOptions = {
 })
 
 export class GodService {
+
+  constructor( private http: HttpClient ) { }
 
   private godsUrl = 'api/gods';
 
@@ -56,8 +57,6 @@ export class GodService {
       catchError(this.handleError<God>('deleteGod'))
     );
   }
-
-  constructor( private http: HttpClient ) { }
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

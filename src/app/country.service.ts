@@ -4,7 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Country } from './country';
-import { COUNTRIES } from './mock-countries';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,6 +14,8 @@ const httpOptions = {
 })
 
 export class CountryService {
+
+  constructor( private http: HttpClient ) { }
 
   private countriesUrl = 'api/countries';
 
@@ -56,8 +57,6 @@ export class CountryService {
       catchError(this.handleError<Country>('deleteCountry'))
     );
   }
-
-  constructor( private http: HttpClient ) { }
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

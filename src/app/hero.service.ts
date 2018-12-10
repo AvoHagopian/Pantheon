@@ -16,6 +16,8 @@ const httpOptions = {
 
 export class HeroService {
 
+  constructor( private http: HttpClient ) { }
+
   private heroesUrl = 'api/heroes';
 
   // GET many
@@ -56,8 +58,6 @@ export class HeroService {
       catchError(this.handleError<any>('updateHero'))
     );
   }
-
-  constructor( private http: HttpClient ) { }
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
