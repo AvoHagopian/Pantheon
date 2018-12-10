@@ -33,13 +33,6 @@ export class HeroService {
     );
   }
 
-  // PUT
-  updateHero(hero: Hero): Observable<any> {
-    return this.http.put(this.heroesUrl, hero, httpOptions).pipe(
-      catchError(this.handleError<any>('updateHero'))
-    );
-  }
-
   // POST
   addHero (hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe(
@@ -54,6 +47,13 @@ export class HeroService {
 
     return this.http.delete<Hero>(url, httpOptions).pipe(
       catchError(this.handleError<Hero>('deleteHero'))
+    );
+  }
+
+  // PUT
+  updateHero(hero: Hero): Observable<any> {
+    return this.http.put(this.heroesUrl, hero, httpOptions).pipe(
+      catchError(this.handleError<any>('updateHero'))
     );
   }
 
