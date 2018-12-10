@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { God } from '../god';
-import { GODS } from '../mock-gods';
 import { GodService } from '../god.service';
 
 @Component({
