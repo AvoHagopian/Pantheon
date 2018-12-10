@@ -11,6 +11,7 @@ import { HeroComponent } from './hero/hero.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { CountryDetailComponent } from './country-detail/country-detail.component';
 import { GodDetailComponent } from './god-detail/god-detail.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { GodDetailComponent } from './god-detail/god-detail.component';
     HeroComponent,
     HeroDetailComponent,
     CountryDetailComponent,
-    GodDetailComponent
+    GodDetailComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
