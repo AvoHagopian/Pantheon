@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { God } from './god';
+import {Country } from './country';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -36,7 +37,8 @@ export class GodService {
 
   // PUT
   updateGod(god: God): Observable<any> {
-    return this.http.put(this.godsUrl, god, httpOptions).pipe(
+    const url = `${this.godsUrl}/${god.id}`;
+    return this.http.put(url, god, httpOptions).pipe(
       catchError(this.handleError<any>('updateGod'))
     );
   }
@@ -55,6 +57,13 @@ export class GodService {
 
     return this.http.delete<God>(url, httpOptions).pipe(
       catchError(this.handleError<God>('deleteGod'))
+    );
+  }
+
+  getCountry(id: number): Observable<Country> {
+    const url = `api/countries/${id}`;
+    return this.http.get<Country>(url).pipe(
+      catchError(this.handleError<Country>('getCountry'))
     );
   }
 

@@ -36,7 +36,8 @@ export class CountryService {
 
   // PUT
   updateCountry(country: Country): Observable<any> {
-    return this.http.put(this.countriesUrl, country, httpOptions).pipe(
+    const url = `${this.countriesUrl}/${country.id}`;
+    return this.http.put(url, country, httpOptions).pipe(
       catchError(this.handleError<any>('updateCountry'))
     );
   }

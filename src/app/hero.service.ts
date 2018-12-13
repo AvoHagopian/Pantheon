@@ -53,7 +53,8 @@ export class HeroService {
 
   // PUT
   updateHero(hero: Hero): Observable<any> {
-    return this.http.put(this.heroesUrl, hero, httpOptions).pipe(
+    const url = `${this.heroesUrl}/${hero.id}`;
+    return this.http.put(url, hero, httpOptions).pipe(
       catchError(this.handleError<any>('updateHero'))
     );
   }
