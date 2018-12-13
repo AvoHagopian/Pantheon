@@ -14,7 +14,7 @@ export class AuthService {
     clientID: '6lhFEaoBzQ9lkvZo9aBoZZEySg65T3e5',
     domain: 'hagopian.auth0.com',
     responseType: 'token id_token',
-    redirectUri: 'http://localhost:5001/home',
+    redirectUri: 'http://pantheonf.azurewebsites.net/home',
     scope: 'openid'
   });
 
