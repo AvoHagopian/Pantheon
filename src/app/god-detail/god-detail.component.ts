@@ -21,10 +21,17 @@ export class GodDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.godService.getGod(id)
       .subscribe(god => this.god = god);
+    this.godService.getCountry(id)
+      .subscribe(result => this.god.countryName = result.name);
+    this.stateSave();
   }
   save(): void {
     this.godService.updateGod(this.god)
       .subscribe(() => this.goBack());
+  }
+  stateSave(): void {
+    this.godService.updateGod(this.god)
+      .subscribe();
   }
   goBack(): void {
     this.location.back();

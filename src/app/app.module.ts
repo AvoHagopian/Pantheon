@@ -11,8 +11,8 @@ import { HeroComponent } from './hero/hero.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { CountryDetailComponent } from './country-detail/country-detail.component';
 import { GodDetailComponent } from './god-detail/god-detail.component';
-import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,6 @@ import { HomeComponent } from './home/home.component';
     HeroDetailComponent,
     CountryDetailComponent,
     GodDetailComponent,
-    LoginComponent,
     HomeComponent
   ],
   imports: [
@@ -32,7 +31,7 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
